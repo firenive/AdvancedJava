@@ -1,6 +1,7 @@
 package JavaCollections.ArrayList;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -14,6 +15,9 @@ public class ArrTest {
         // например ArrayList ссылается на интерфейс List. это позволяет легко сослать объект на другой тип массива
         // Если нам нужно выполнять операции со множеством вставок и копирований в середину списка используем LinkedList
         list = new LinkedList<>();
+
+        List<Integer> list1 = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
+        // пример создания ArrayList сразу с указанием значений
         for (int i = 0; i < 10; i++) {
             list.add(i);
         }
