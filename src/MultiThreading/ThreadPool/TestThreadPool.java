@@ -2,9 +2,10 @@ package MultiThreading.ThreadPool;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class TestThreadPool {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         /* на прошлых уроков создавались потоки явно, путем создания объектов класса Thread либо используя интерфейс
         Runnable. Здесь изучим другой метод создания потоков ThreadPool. При этом методе создается n-число потоков,
         которые выполняют задание параллельно */
@@ -21,7 +22,12 @@ public class TestThreadPool {
              описанных в методе run()*/
         }
         service.shutdown(); // Метод сообщающий, что распределение заданий закончено. Запускает выполнение переданных методом
-        // submit() заданий. Два потока начинают выполнение 5 переданных заданий
+        // submit() заданий. Два потока начинают выполнение 5 переданных заданий. Метод похож на start() потока
+
+        service.awaitTermination(1 , TimeUnit.DAYS);
+        // Указываем сколько хотим ждать пока потоки выполнят все задания. Первый параметр число, второй объект класса
+        // TimeUnit. Метод похож на join() только время ожидания задаем вручную. Если задания выполнены продолжаем
+        // выполнение основного потока. Если прошло переданное время, а задания не  выполнены запускается main поток
     }
 }
 class WorkPool implements Runnable {
