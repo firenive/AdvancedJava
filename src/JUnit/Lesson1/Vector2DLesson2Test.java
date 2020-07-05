@@ -3,7 +3,7 @@ package JUnit.Lesson1;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class Vector2DTest {
+public class Vector2DLesson2Test {
 
     @Test
     public void newVectorShouldHaveZeroLength() {
